@@ -1,0 +1,9 @@
+#gallery {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.gallery-image {
+  max-width: 360px;
+}
