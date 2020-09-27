@@ -18,10 +18,8 @@ const images = [
 
 const galleryRef = document.querySelector('#gallery');
 
-const makeMarkupsOfGalleryElements = images
-  .map(({ url, alt }) => {
-    return `<li class='gallery-list-item'><img class='gallery-image' src=${url} alt=${alt}/></li>`;
-  })
-  .join();
+const makeMarkupsOfGalleryElements = images.map(({ url, alt }) => {
+  return `<li class='gallery-list-item'><img class='gallery-image' src=${url} alt=${alt}/></li>`;
+});
 
 galleryRef.insertAdjacentHTML('beforeend', makeMarkupsOfGalleryElements);
