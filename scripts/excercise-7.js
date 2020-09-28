@@ -3,7 +3,7 @@ const refs = {
   outputText: document.getElementById('text'),
 };
 
-refs.inputValue.addEventListener('change', onInputChange);
+refs.inputValue.addEventListener('input', onInputChange);
 
 function onInputChange() {
   refs.outputText.style.fontSize = `${refs.inputValue.valueAsNumber}px`;

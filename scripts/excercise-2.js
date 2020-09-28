@@ -7,7 +7,7 @@ const ingredients = [
   'Приправы',
 ];
 
-let newIngredientsList = document.createElement('ul');
+const newIngredientsList = document.createElement('ul');
 const ingredientsRef = document.querySelector('#ingredients');
 ingredients.forEach(item => {
   const newEl = document.createElement('li');
