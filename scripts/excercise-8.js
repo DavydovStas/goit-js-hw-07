@@ -1,6 +1,6 @@
 const refs = {
   boxesContainer: document.getElementById('boxes'),
-  input: document.querySelector('input[type="number"]'),
+  controlsPanel: document.getElementById('controls'),
   buttonRender: document.querySelector('[data-action="render"]'),
   buttonDestroy: document.querySelector('[data-action="destroy"]'),
 };
@@ -9,7 +9,7 @@ refs.buttonRender.addEventListener('click', onButtonRenderClick);
 refs.buttonDestroy.addEventListener('click', onButtonDestroyClick);
 
 function onButtonRenderClick() {
-  onButtonDestroyClick();
+  refs.boxesContainer.innerHTML = '';
   createBoxes();
 }
 
@@ -18,18 +18,19 @@ function createBoxes(amount) {
   if (amount <= 0) {
     return;
   }
+
   const boxSize = 30;
+
   let murkupOfBoxes = '';
   for (let i = 0; i < amount; i += 1) {
     murkupOfBoxes += `<div class='box' style="width: ${
       boxSize + 10 * i
-    }px; height = ${boxSize + 10 * i}px; background-color: rgb(${getRandomColor(
+    }px; height: ${boxSize + 10 * i}px; background-color: rgb(${getRandomColor(
       255,
     )}, ${getRandomColor(255)}, ${getRandomColor(255)});"></div>`;
   }
 
   refs.boxesContainer.insertAdjacentHTML('beforeend', murkupOfBoxes);
-  console.log(murkupOfBoxes);
 
   function getRandomColor(value) {
     return Math.floor(Math.random() * Math.floor(value));
@@ -37,5 +38,5 @@ function createBoxes(amount) {
 }
 
 function onButtonDestroyClick() {
-  document.querySelectorAll('box').remove();
+  refs.boxesContainer.innerHTML = '';
 }
